@@ -18,30 +18,43 @@ class RestAPI:
         params = {'assets': assets}
         return pd.DataFrame(self._get(endpoint, params=params))
    
-    def candles(self, symbol, to_date, from_date, timeframe):
+    def candles(self, symbol, from_date, timeframe):
         endpoint = "candles"
-        params = {'symbol': symbol, 'to': to_date, 'from': from_date, 'timeframe': timeframe}
-        return pd.DataFrame(self._get(endpoint, params=params))
+        params = {'symbol': symbol, 'from': from_date, 'timeframe': timeframe}
+        res = pd.DataFrame(self._get(endpoint, params=params))
+        if timeframe>=3:
+            res['ts'] = pd.to_datetime(res['ts'], utc=True).dt.date
+        else:
+            res['ts'] = pd.to_datetime(res['ts'], utc=True)
+        return res
    
     def fundamental(self, symbol, to_date, from_date, fields):
         endpoint = "fundamental"
         params = {'symbol': symbol, 'to': to_date, 'from': from_date, 'fields': fields}
-        return pd.DataFrame(self._get(endpoint, params=params))
+        res = pd.DataFrame(self._get(endpoint, params=params))
+        res['date'] = pd.to_datetime(res['date'], utc=True).dt.date
+        return res
    
     def news(self, symbol, to_date, from_date):
         endpoint = "news"
         params = {'symbol': symbol, 'to': to_date, 'from': from_date}
-        return pd.DataFrame(self._get(endpoint, params=params))
+        res = pd.DataFrame(self._get(endpoint, params=params))
+        res['created'] = pd.to_datetime(res['created'], utc=True)
+        return res
    
     def events(self, symbol, to_date, from_date, event_type):
         endpoint = "events"
         params = {'symbol': symbol, 'to': to_date, 'from': from_date, 'type': event_type}
-        return pd.DataFrame(self._get(endpoint, params=params))
+        res = pd.DataFrame(self._get(endpoint, params=params))
+        res['buy_date'] = pd.to_datetime(res['buy_date'], utc=True).dt.date
+        return res
    
     def signals(self, vendor, model, symbol, from_date):
         endpoint = "signals"
         params = {'vendor': vendor, 'model': model, 'symbol': symbol, 'from': from_date}
-        return pd.DataFrame(self._get(endpoint, params=params))
+        res = pd.DataFrame(self._get(endpoint, params=params))
+        res['trade_date'] = pd.to_datetime(res['trade_date'], utc=True).dt.date
+        return res
  
     def models(self, vendor):
         endpoint = "models"
@@ -51,5 +64,10 @@ class RestAPI:
     def altercandles(self, symbol, to_date, from_date, timeframe):
         endpoint = "altercandles"
         params = {'symbol': symbol, 'to': to_date, 'from': from_date, 'timeframe': timeframe}
-        return pd.DataFrame(self._get(endpoint, params=params))
+        res = pd.DataFrame(self._get(endpoint, params=params))
+        if timeframe>=3:
+            res['ts'] = pd.to_datetime(res['ts'], utc=True).dt.date
+        else:
+            res['ts'] = pd.to_datetime(res['ts'], utc=True)
+        return res
  
