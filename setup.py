@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
  
 setup(
     name='limexhub',
-    version='0.1.3',
+    version='0.1.5',
     packages=find_packages(),
     include_package_data=True,
     description='A simple API wrapper for Limex DataHub',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/arbuzovv/limexhub-python',
+    url='https://github.com/Limex-com/limexhub-python',
     author='V.Arbuzov',
     author_email='varbuzov@limex.com',
     license='MIT',

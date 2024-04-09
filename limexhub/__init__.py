@@ -1,1 +1,1 @@
-from .api import LimexAPI
+from .restapi import RestAPI

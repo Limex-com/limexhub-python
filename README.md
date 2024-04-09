@@ -26,7 +26,7 @@ The library needs to be configured with an API key from your account. [Sign up](
 ``` r
 import limexhub
 api_token = 'your_api_key'
-client = limexhub.LimexAPI(token=api_token)
+client = limexhub.RestAPI(token=api_token)
 
 
 
