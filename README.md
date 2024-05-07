@@ -1,5 +1,9 @@
 # Limexhub
- 
+ <a target="new" href="https://pypi.python.org/pypi/limexhub"><img border=0 src="https://img.shields.io/badge/python-2.7,%203.6+-blue.svg?style=flat" alt="Python version"></a>
+ <a target="new" href="https://pypi.python.org/pypi/limexhub"><img border=0 src="https://img.shields.io/pypi/v/limexhub?maxAge=60%" alt="PyPi version"></a>
+ <a target="new" href="https://pypi.python.org/pypi/limexhub"><img border=0 src="https://img.shields.io/pypi/dm/limexhub.svg?maxAge=2592000&label=installs&color=%2327B1FF" alt="PyPi downloads"></a>
+ <a target="new" href="https://github.com/Limex-com/limexhub-python"><img border=0 src="https://img.shields.io/github/stars/Limex-com/limexhub-python.svg?style=social&label=Star&maxAge=60" alt="Star this repo"></a>
+
 `limexhub` is a comprehensive Python library designed to simplify interactions with the financial data and services provided by Limex DataHub. It provides an easy-to-use interface for fetching various types of financial data, including instruments, candles, fundamentals, news, events, and predictive signals.
  
 ## Features
