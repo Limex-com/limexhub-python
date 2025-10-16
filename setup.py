@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
  
 setup(
     name='limexhub',
-    version='0.1.22',
+    version='1.10.16',
     packages=find_packages(),
     include_package_data=True,
     description='A simple API wrapper for Limex DataHub',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/Limex-com/limexhub-python',
-    author='V.Arbuzov',
+    author='Limex',
     author_email='varbuzov@limex.com',
     license='MIT',
     install_requires=[

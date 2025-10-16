@@ -1,3 +1,30 @@
+Metadata-Version: 2.4
+Name: limexhub
+Version: 1.10.18
+Summary: A simple API wrapper for Limex DataHub
+Home-page: https://github.com/Limex-com/limexhub-python
+Author: Limex
+Author-email: varbuzov@limex.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # Limexhub
  
 `limexhub` is a comprehensive Python library designed to simplify interactions with the financial data and services provided by Limex DataHub. It provides an easy-to-use interface for fetching various types of financial data, including instruments, candles, fundamentals, news, events, and predictive signals.
