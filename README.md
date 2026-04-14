@@ -73,7 +73,7 @@ news = client.news(symbol="AAPL",
 models = client.models(vendor = 'boosted')
 
 signals = client.signals(vendor="boosted", 
-                         model=models[0]['id'], 
+                         model=models.iloc[0]['id'], 
                          symbol="AAPL", 
                          from_date="2023-01-01")
 

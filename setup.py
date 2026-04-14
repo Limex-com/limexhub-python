@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
  
 setup(
     name='limexhub',
-    version='1.10.16',
+    version='1.16.15',
     packages=find_packages(),
     include_package_data=True,
     description='A simple API wrapper for Limex DataHub',

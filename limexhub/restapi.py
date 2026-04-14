@@ -86,7 +86,8 @@ class RestAPI:
         endpoint = "news"
         params = {'symbol': symbol, 'from': from_date,'to': to_date}
         res = pd.DataFrame(self._get(endpoint, params=params))
-        res['created'] = pd.to_datetime(res['created'], utc=True)
+        if len(res) > 0:
+            res['created'] = pd.to_datetime(res['created'], utc=True)
         return res
    
     def events(self, symbol, from_date='2020-01-01',to_date=datetime.today().strftime('%Y-%m-%d'), event_type='dividends'):
@@ -118,6 +119,15 @@ class RestAPI:
         params = {'index': index}
         return pd.DataFrame(self._get(endpoint, params=params))     
 
+    def congress_trading(self, ticker: Optional[str] = None, member_name: Optional[str] = None, limit: int = 100):
+        endpoint = "congress/trading"
+        params = {'limit': limit}
+        if ticker:
+            params['ticker'] = ticker
+        if member_name:
+            params['member_name'] = member_name.title()
+        return pd.DataFrame(self._get(endpoint, params=params))
+
     def altercandles(self, symbol, from_date='2020-01-01',to_date=datetime.today().strftime('%Y-%m-%d'), timeframe=3):
         endpoint = "altercandles"
         params = {'symbol': symbol, 'to': to_date, 'from': from_date, 'timeframe': timeframe}
@@ -128,9 +138,3 @@ class RestAPI:
             res['ts'] = pd.to_datetime(res['ts'], utc=True)
         return res.sort_values(by=['ts'])
  
-# if __name__ == "__main__":    
-    # api = RestAPI(token="")
-    # tickers = ['AAPL', 'MSFT']
-    # candles = api.candles(tickers, from_date="2025-10-12", to_date="2025-10-15" )
-    # client.fundamental('')
-    # client.signals(symbol="")
